@@ -32,7 +32,7 @@
   }
 
   button {
-    @apply font-gt-walsheim!;
+    @apply font-gt-walsheim! cursor-pointer;
   }
 
   h1 {
