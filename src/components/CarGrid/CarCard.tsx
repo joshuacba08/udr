@@ -106,21 +106,50 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
           {/* Main content */}
           <div className="flex flex-1">
             {/* Left Section - Company Info */}
-            <div className="w-36 bg-white p-4 flex flex-col items-center justify-start border-r border-gray-100">
-              {/* AVIS Logo */}
-              <div className="w-12 h-6 mb-3">
-                <AvisLogo className="w-full h-full" />
+            {/* Car Image */}
+            {/* <div className="relative h-40 bg-gray-50 rounded-lg overflow-hidden mb-4">
+                {car.picture_url?.normal ? (
+                  <img
+                    src={car.picture_url.normal}
+                    alt={car.name}
+                    className={`w-full h-full object-contain transition-opacity duration-300 ${
+                      isImageLoaded ? "opacity-100" : "opacity-0"
+                    }`}
+                    onLoad={handleImageLoad}
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder-car.jpg";
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                    <Typography variant="small" className="text-gray-400">
+                      Sin imagen
+                    </Typography>
+                  </div>
+                )}
+              </div> */}
+            <Card.Header className="m-0 h-full w-2/5 shrink-0 rounded-r-none relative">
+              <img
+                src={car.picture_url.normal}
+                alt="card-image"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute top-4 left-4">
+                <div className="w-12 h-6 mb-3">
+                  <AvisLogo className="w-full h-full" />
+                </div>
+
+                {/* Star Rating */}
+                <div className="flex gap-0.5 mb-3">{renderStarRating}</div>
               </div>
-
-              {/* Star Rating */}
-              <div className="flex gap-0.5 mb-3">{renderStarRating}</div>
-
               {/* Destacado Chip */}
-              <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2 py-1 rounded-full">
+              <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2 py-1 rounded-full absolute bottom-4 left-4">
                 <CheckLogo className="w-3 h-3" />
                 <span>Destacado</span>
               </div>
-            </div>
+            </Card.Header>
+
+            <div className="w-36 bg-white p-4 flex flex-col items-center justify-start border-r border-gray-100"></div>
 
             {/* Center Section - Car Details */}
             <div className="flex-1 p-6">
@@ -221,29 +250,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   </Chip.Icon>
                   <Chip.Label className={"p-0 m-0"}>Sí</Chip.Label>
                 </Chip>
-              </div>
-
-              {/* Car Image */}
-              <div className="relative h-40 bg-gray-50 rounded-lg overflow-hidden mb-4">
-                {car.picture_url?.normal ? (
-                  <img
-                    src={car.picture_url.normal}
-                    alt={car.name}
-                    className={`w-full h-full object-contain transition-opacity duration-300 ${
-                      isImageLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                    onLoad={handleImageLoad}
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder-car.jpg";
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                    <Typography variant="small" className="text-gray-400">
-                      Sin imagen
-                    </Typography>
-                  </div>
-                )}
               </div>
 
               {/* Added to Quote Status */}
