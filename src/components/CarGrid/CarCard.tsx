@@ -266,8 +266,10 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                 Precio por 3 días de renta
               </Typography>
 
+              <hr className="border-gray-300 border my-3" />
+
               {/* Price Navigation */}
-              <div className="flex items-center w-full  justify-between mb-5">
+              <div className="flex items-center w-full  justify-between mb-2">
                 <Button variant="ghost" size="sm" className="p-2 text-gray-400">
                   <ArrowIcon className="w-4 h-4" />
                 </Button>
