@@ -1,12 +1,11 @@
-import { Button } from "@material-tailwind/react";
 import "./App.css";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button>Click me</Button>
-    </>
+    <div>
+      <MainLayout />
+    </div>
   );
 }
 
