@@ -1,12 +1,28 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-@theme {
-  --color-primary: #3279bd;
-  --color-secondary: #ffffff;
-  --color-error: #e91248;
-  --color-success: #35b890;
-  --color-warning: #ffb503;
-  --color-background: #f1f3f6;
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("./assets/fonts/subset-GTWalsheim-Regular-_1.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("./assets/fonts/subset-GTWalsheim-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: url("./assets/fonts/subset-GTWalsheim-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
