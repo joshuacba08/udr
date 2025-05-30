@@ -40,6 +40,9 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   const { filters } = useCarStore();
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+  const [accordionValue, setAccordionValue] = useState<string | string[]>([]);
+  const tooltipTimeoutRef = useRef<number | null>(null);
 
   // Get the highlighted rate (Inclusive Light)
   const highlightedRate = useMemo(() => {
@@ -88,6 +91,30 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     setIsHovering(false);
   }, []);
 
+  // Tooltip handlers
+  const handleTooltipMouseEnter = useCallback(() => {
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current);
+      tooltipTimeoutRef.current = null;
+    }
+    setIsTooltipOpen(true);
+  }, []);
+
+  const handleTooltipMouseLeave = useCallback(() => {
+    tooltipTimeoutRef.current = setTimeout(() => {
+      setIsTooltipOpen(false);
+    }, 150); // Small delay to allow moving to tooltip content
+  }, []);
+
+  // Cleanup timeout on unmount
+  React.useEffect(() => {
+    return () => {
+      if (tooltipTimeoutRef.current) {
+        clearTimeout(tooltipTimeoutRef.current);
+      }
+    };
+  }, []);
+
   // Render star rating
   const renderStarRating = useMemo(() => {
     const stars = [];
@@ -108,7 +135,11 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   // Tooltip content with individual accordions for each inclusion
   const TooltipContent = useMemo(
     () => (
-      <div className="w-80 max-w-sm bg-white rounded-lg p-4">
+      <div
+        className="w-80 max-w-sm bg-white rounded-lg p-4"
+        onMouseEnter={handleTooltipMouseEnter}
+        onMouseLeave={handleTooltipMouseLeave}
+      >
         <Typography
           variant="h6"
           className="font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2"
@@ -123,7 +154,11 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
           Inclusive Light (H8)
         </Typography>
 
-        <Accordion type="multiple">
+        <Accordion
+          type="multiple"
+          value={accordionValue}
+          onValueChange={setAccordionValue}
+        >
           {inclusionsData.map((inclusion, index) => (
             <Accordion.Item
               key={inclusion.key || index}
@@ -160,7 +195,13 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
         </Accordion>
       </div>
     ),
-    [inclusionsData]
+    [
+      inclusionsData,
+      handleTooltipMouseEnter,
+      handleTooltipMouseLeave,
+      accordionValue,
+      setAccordionValue,
+    ]
   );
 
   const pricing =
@@ -339,17 +380,19 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                 <Typography variant="h5" className="font-bold text-gray-900">
                   Inclusive Light
                 </Typography>
-                <Tooltip>
+                <Tooltip open={isTooltipOpen}>
                   <Tooltip.Trigger>
-                    <button
-                      className="p-0 border-0 bg-transparent cursor-pointer hover:opacity-75 transition-opacity"
+                    <div
+                      className="p-0 border-0 bg-transparent cursor-pointer hover:opacity-75 transition-opacity inline-flex items-center justify-center"
                       aria-label="Ver detalle de inclusiones"
+                      onMouseEnter={handleTooltipMouseEnter}
+                      onMouseLeave={handleTooltipMouseLeave}
                     >
                       <InfoIcon className="w-5 h-5 text-blue-600" />
-                    </button>
+                    </div>
                   </Tooltip.Trigger>
                   <Tooltip.Content className="border-0 max-w-none z-50 p-0">
-                    {TooltipContent}
+                    {isTooltipOpen && TooltipContent}
                     <Tooltip.Arrow className="fill-white" />
                   </Tooltip.Content>
                 </Tooltip>
