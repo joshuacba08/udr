@@ -15,36 +15,29 @@ export interface FilterState {
 }
 
 export interface CarStore {
-  // Data state
   allCars: Car[];
   filteredCars: Car[];
   isLoading: boolean;
   error: string | null;
 
-  // Filter state
   filters: FilterState;
   activeFiltersCount: number;
 
-  // Sorting state
   sortOption: SortOption;
   showFeaturedFirst: boolean;
 
-  // Data actions
   setAllCars: (cars: Car[]) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
 
-  // Filter actions
   updateFilters: (newFilters: Partial<FilterState>) => void;
   clearAllFilters: () => void;
   applyFilters: () => void;
 
-  // Sorting actions
   setSortOption: (option: SortOption) => void;
   toggleFeatured: () => void;
   applySorting: () => void;
 
-  // Computed getters
   getTotalCarsCount: () => number;
   getFilteredCarsCount: () => number;
 }
@@ -61,7 +54,6 @@ const initialFilters: FilterState = {
 export const useCarStore = create<CarStore>()(
   devtools(
     immer((set, get) => ({
-      // Initial state
       allCars: [],
       filteredCars: [],
       isLoading: false,
@@ -71,7 +63,6 @@ export const useCarStore = create<CarStore>()(
       sortOption: "featured",
       showFeaturedFirst: true,
 
-      // Data actions
       setAllCars: (cars) =>
         set((state) => {
           state.allCars = cars;
@@ -88,21 +79,17 @@ export const useCarStore = create<CarStore>()(
           state.error = error;
         }),
 
-      // Filter actions
       updateFilters: (newFilters) =>
         set((state) => {
           state.filters = { ...state.filters, ...newFilters };
 
-          // Calculate active filters
           let count = 0;
 
-          // Count array filters
           if (state.filters.companies.length > 0) count++;
           if (state.filters.categories.length > 0) count++;
           if (state.filters.luggageCapacity.length > 0) count++;
           if (state.filters.passengerCount.length > 0) count++;
 
-          // Count price range filter (only if it has meaningful values)
           if (
             state.filters.priceRange &&
             (state.filters.priceRange[0] > 0 ||
@@ -125,15 +112,10 @@ export const useCarStore = create<CarStore>()(
         set((state) => {
           let filtered = [...state.allCars];
 
-          // Apply filters only if there are active filters
           if (state.activeFiltersCount > 0) {
-            // Filter by companies (brands)
             if (state.filters.companies.length > 0) {
-              // Create a mapping from brand name to brand ID
-              // We need to find the brand ID for each brand name
               const brandNameToId: { [key: string]: number } = {};
 
-              // Group cars by brand ID to create the mapping
               const brandGroups: { [key: number]: Car[] } = {};
               state.allCars.forEach((car) => {
                 if (!brandGroups[car.brand]) {
@@ -142,8 +124,6 @@ export const useCarStore = create<CarStore>()(
                 brandGroups[car.brand].push(car);
               });
 
-              // This is a simplified approach - we'll need to get the brand names from the original data structure
-              // For now, let's create a reasonable mapping based on common rental companies
               const commonBrandMapping: { [key: string]: number } = {
                 Avis: 1,
                 Budget: 2,
@@ -156,7 +136,6 @@ export const useCarStore = create<CarStore>()(
                 Dollar: 9,
               };
 
-              // Create reverse mapping for filtering
               Object.entries(commonBrandMapping).forEach(([name, id]) => {
                 brandNameToId[name] = id;
               });
@@ -169,14 +148,12 @@ export const useCarStore = create<CarStore>()(
               );
             }
 
-            // Filter by categories
             if (state.filters.categories.length > 0) {
               filtered = filtered.filter((car) =>
                 state.filters.categories.includes(car.features.category)
               );
             }
 
-            // Filter by luggage capacity
             if (state.filters.luggageCapacity.length > 0) {
               filtered = filtered.filter((car) => {
                 const largeSuitcase = car.features.large_suitcase || 0;
@@ -186,7 +163,6 @@ export const useCarStore = create<CarStore>()(
               });
             }
 
-            // Filter by passenger count
             if (state.filters.passengerCount.length > 0) {
               filtered = filtered.filter((car) => {
                 const seats = parseInt(car.features.seats);
@@ -196,7 +172,6 @@ export const useCarStore = create<CarStore>()(
               });
             }
 
-            // Filter by price range
             if (state.filters.priceRange) {
               filtered = filtered.filter((car) => {
                 const rates = Object.values(car.rates);
@@ -224,7 +199,6 @@ export const useCarStore = create<CarStore>()(
           state.filteredCars = filtered;
         }),
 
-      // Sorting actions
       setSortOption: (option) =>
         set((state) => {
           state.sortOption = option;
@@ -245,7 +219,6 @@ export const useCarStore = create<CarStore>()(
         set((state) => {
           const sorted = [...state.filteredCars];
 
-          // First sort by featured if activated
           if (state.showFeaturedFirst) {
             sorted.sort((a, b) => {
               const aHasTag = a.tags && a.tags.length > 0;
@@ -256,10 +229,8 @@ export const useCarStore = create<CarStore>()(
             });
           }
 
-          // Then apply price sorting if not featured
           if (state.sortOption !== "featured") {
             sorted.sort((a, b) => {
-              // Get first available rate to compare prices
               const aRates = Object.values(a.rates);
               const bRates = Object.values(b.rates);
 
@@ -281,7 +252,6 @@ export const useCarStore = create<CarStore>()(
           state.filteredCars = sorted;
         }),
 
-      // Computed getters
       getTotalCarsCount: () => {
         const state = get();
         return state.allCars.length;
@@ -293,7 +263,7 @@ export const useCarStore = create<CarStore>()(
       },
     })),
     {
-      name: "car-store", // Nombre del store en Redux DevTools
+      name: "car-store",
     }
   )
 );

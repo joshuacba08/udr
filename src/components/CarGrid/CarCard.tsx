@@ -44,7 +44,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   const [accordionValue, setAccordionValue] = useState<string | string[]>([]);
   const tooltipTimeoutRef = useRef<number | null>(null);
 
-  // Get the highlighted rate (Inclusive Light)
   const highlightedRate = useMemo(() => {
     const rates = Object.entries(car.rates);
     const inclusiveRate = rates.find(
@@ -55,14 +54,12 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     return inclusiveRate ? inclusiveRate[1] : Object.values(car.rates)[0];
   }, [car.rates]);
 
-  // Get inclusions data for tooltip accordions
   const inclusionsData = useMemo(() => {
     if (!highlightedRate?.inclusions_meta) return [];
 
     const inclusions: Array<Inclusion_meta_Item & { key: string }> = [];
     const meta = highlightedRate.inclusions_meta;
 
-    // Add all inclusion items with their keys
     Object.entries(meta).forEach(([key, item]) => {
       if (
         item &&
@@ -77,12 +74,10 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     return inclusions;
   }, [highlightedRate]);
 
-  // Handle card selection
   const handleSelect = useCallback(() => {
     onSelect?.(car);
   }, [car, onSelect]);
 
-  // Mouse enter/leave handlers
   const handleMouseEnter = useCallback(() => {
     setIsHovering(true);
   }, []);
@@ -91,7 +86,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     setIsHovering(false);
   }, []);
 
-  // Tooltip handlers
   const handleTooltipMouseEnter = useCallback(() => {
     if (tooltipTimeoutRef.current) {
       clearTimeout(tooltipTimeoutRef.current);
@@ -103,10 +97,9 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   const handleTooltipMouseLeave = useCallback(() => {
     tooltipTimeoutRef.current = setTimeout(() => {
       setIsTooltipOpen(false);
-    }, 150); // Small delay to allow moving to tooltip content
+    }, 150);
   }, []);
 
-  // Cleanup timeout on unmount
   React.useEffect(() => {
     return () => {
       if (tooltipTimeoutRef.current) {
@@ -115,7 +108,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     };
   }, []);
 
-  // Render star rating
   const renderStarRating = useMemo(() => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -132,7 +124,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     return stars;
   }, [car.stars]);
 
-  // Tooltip content with individual accordions for each inclusion
   const TooltipContent = useMemo(
     () => (
       <div
@@ -227,7 +218,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Blue vertical bar */}
       <div className="w-1 bg-blue-600 flex-shrink-0"></div>
       <Card.Header className="m-0 h-full w-3/12 shrink-0 rounded-r-none relative bg-white ">
         <img
@@ -239,11 +229,8 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
           <div className="w-12 h-6 mb-3">
             <AvisLogo className="w-full h-full" />
           </div>
-
-          {/* Star Rating */}
           <div className="flex gap-0.5 mb-3">{renderStarRating}</div>
         </div>
-        {/* Destacado Chip */}
         <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2 py-1 rounded-full absolute bottom-4 left-4">
           <CheckLogo className="w-3 h-3" />
           <span>Destacado</span>
@@ -251,11 +238,8 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
       </Card.Header>
       <CardBody className="p-0 border-r-3 bg-white border-gray-300 border-dashed w-5/12 h-full">
         <div className="flex">
-          {/* Main content */}
           <div className="flex flex-1">
-            {/* Center Section - Car Details */}
             <div className="flex-1 p-6">
-              {/* Car Category */}
               <div className="mb-4">
                 <Typography
                   variant="small"
@@ -274,9 +258,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                 </Typography>
               </div>
 
-              {/* Car Features Icons */}
               <div className="flex items-center gap-2 my-8">
-                {/* Passengers */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-1"
@@ -289,7 +271,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   </Chip.Label>
                 </Chip>
 
-                {/* Doors */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
@@ -302,7 +283,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   </Chip.Label>
                 </Chip>
 
-                {/* Transmission */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
@@ -313,7 +293,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   <Chip.Label className={"p-0 m-0"}>A</Chip.Label>
                 </Chip>
 
-                {/* Luggage */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
@@ -327,7 +306,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   </Chip.Label>
                 </Chip>
 
-                {/* Count */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
@@ -342,7 +320,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                   <Chip.Label className={"p-0 m-0"}>1</Chip.Label>
                 </Chip>
 
-                {/* Air Conditioning */}
                 <Chip
                   isPill={false}
                   className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
@@ -356,7 +333,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
 
               <hr className="border-gray-300 border my-5" />
 
-              {/* Added to Quote Status */}
               <div className="flex items-center gap-2">
                 <CheckLogo className="w-4 h-4 text-green-600" />
                 <Typography
@@ -372,9 +348,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
       </CardBody>
       <CardFooter className="p-0 border-none w-6/12 bg-white flex justify-center items-center">
         <Card className="h-[90%] w-[80%] bg-white p-4 border-none shadow relative">
-          {/* Right Section - Rate Card */}
           <div className="w-full flex flex-col justify-between items-center">
-            {/* Rate Info */}
             <div className="mb-6 w-full">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Typography variant="h5" className="font-bold text-gray-900">
@@ -407,7 +381,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
 
               <hr className="border-gray-300 border my-3" />
 
-              {/* Price Navigation */}
               <div className="flex items-center w-full justify-between mb-2">
                 <Button variant="ghost" size="sm" className="p-2 text-gray-400">
                   <ArrowIcon className="w-4 h-4" />
@@ -435,7 +408,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
               </div>
             </div>
 
-            {/* Select Button */}
             <Button
               size="lg"
               className="w-full bg-primary text-white font-semibold py-4 rounded-lg transition-colors duration-200 h-11"

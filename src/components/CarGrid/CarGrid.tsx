@@ -59,7 +59,6 @@ export const CarGrid: React.FC = () => {
             car={car}
             onSelect={(selectedCar) => {
               console.log("Car selected:", selectedCar);
-              // Here you can handle the car selection logic
             }}
           />
         ))}

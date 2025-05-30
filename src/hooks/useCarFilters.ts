@@ -83,12 +83,7 @@ export const useCarFilters = () => {
 
   // Filter count functions
   const filterCounts = useMemo(() => {
-    console.log("🔍 Computing filter counts...");
-    console.log("📊 allCars length:", allCars.length);
-    console.log("🚗 carsData exists:", !!carsData?.cars);
-
     if (allCars.length === 0 || !carsData?.cars) {
-      console.log("❌ Early return - no cars or no carsData");
       return {
         brandCounts: {},
         categoryCounts: {},
@@ -109,23 +104,16 @@ export const useCarFilters = () => {
       if (cars.length > 0) {
         const brandId = cars[0].brand;
         brandIdToName[brandId] = brandName;
-        console.log(`🏷️ Brand mapping: ${brandId} -> ${brandName}`);
       }
     });
-
-    console.log("🗺️ Brand ID to Name mapping:", brandIdToName);
 
     // Count all cars by different criteria
     allCars.forEach((car) => {
       // Count by brand name (not brand ID)
       const brandName = brandIdToName[car.brand];
-      console.log(`🚙 Car brand ID: ${car.brand}, mapped to: ${brandName}`);
 
       if (brandName) {
         brandCounts[brandName] = (brandCounts[brandName] || 0) + 1;
-        console.log(
-          `📈 Updated count for ${brandName}: ${brandCounts[brandName]}`
-        );
       }
 
       // Count by category
@@ -146,9 +134,6 @@ export const useCarFilters = () => {
           (passengerCountCounts[passengerCount] || 0) + 1;
       }
     });
-
-    console.log("🎯 Final brand counts:", brandCounts);
-    console.log("📊 Final category counts:", categoryCounts);
 
     return {
       brandCounts,
