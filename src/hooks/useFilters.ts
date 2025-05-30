@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import {
   useBrandsQuery,
+  useCarsQuery,
   useCategoriesQuery,
   usePassengerCountsQuery,
   usePriceRangeQuery,
@@ -28,6 +29,9 @@ export const useFilters = () => {
     usePassengerCountsQuery();
   const { data: priceRangeData, isLoading: priceRangeLoading } =
     usePriceRangeQuery();
+
+  // Add cars data query for counting
+  const { data: carsData, isLoading: carsLoading } = useCarsQuery();
 
   // Filter states
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
@@ -64,7 +68,67 @@ export const useFilters = () => {
     categoriesLoading ||
     suitcaseLoading ||
     passengerLoading ||
-    priceRangeLoading;
+    priceRangeLoading ||
+    carsLoading;
+
+  // Helper function to get all cars as a flat array
+  const getAllCars = useMemo(() => {
+    if (!carsData?.cars) return [];
+    return Object.values(carsData.cars).flat();
+  }, [carsData]);
+
+  // Filter count functions
+  const getFilterCounts = useMemo(() => {
+    if (!carsData?.cars) {
+      return {
+        brandCounts: {},
+        categoryCounts: {},
+        suitcaseCapacityCounts: {},
+        passengerCountCounts: {},
+        totalCars: 0,
+      };
+    }
+
+    const allCars = getAllCars;
+    const brandCounts: { [key: string]: number } = {};
+    const categoryCounts: { [key: string]: number } = {};
+    const suitcaseCapacityCounts: { [key: number]: number } = {};
+    const passengerCountCounts: { [key: number]: number } = {};
+
+    // Count by brand
+    Object.entries(carsData.cars).forEach(([brand, cars]) => {
+      brandCounts[brand] = cars.length;
+    });
+
+    // Count by other criteria
+    allCars.forEach((car) => {
+      // Count by category
+      const category = car.features.category;
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+
+      // Count by suitcase capacity (handle null values)
+      const largeSuitcase = car.features.large_suitcase || 0;
+      const smallSuitcase = car.features.small_suitcase || 0;
+      const suitcaseCapacity = largeSuitcase + smallSuitcase;
+      suitcaseCapacityCounts[suitcaseCapacity] =
+        (suitcaseCapacityCounts[suitcaseCapacity] || 0) + 1;
+
+      // Count by passenger count
+      const passengerCount = parseInt(car.features.seats);
+      if (!isNaN(passengerCount)) {
+        passengerCountCounts[passengerCount] =
+          (passengerCountCounts[passengerCount] || 0) + 1;
+      }
+    });
+
+    return {
+      brandCounts,
+      categoryCounts,
+      suitcaseCapacityCounts,
+      passengerCountCounts,
+      totalCars: allCars.length,
+    };
+  }, [carsData, getAllCars]);
 
   // Filter handlers
   const toggleBrand = useCallback((brand: string) => {
@@ -210,6 +274,9 @@ export const useFilters = () => {
     suitcaseCapacities,
     passengerCounts,
     priceRangeData,
+
+    // Filter counts
+    filterCounts: getFilterCounts,
 
     // Current state
     selectedBrands,

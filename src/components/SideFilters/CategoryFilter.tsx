@@ -6,12 +6,16 @@ interface CategoryFilterProps {
   categories: string[];
   selectedCategories: string[];
   onToggleCategory: (category: string) => void;
+  categoryCounts?: { [key: string]: number };
+  totalCars?: number;
 }
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({
   categories,
   selectedCategories,
   onToggleCategory,
+  categoryCounts = {},
+  totalCars = 0,
 }) => {
   return (
     <Accordion.Item value="categories" className="border-none">
@@ -49,7 +53,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
               htmlFor="category-all"
               className="cursor-pointer text-sm text-gray-700 flex-1"
             >
-              Todas las categorías (3)
+              Todas las categorías ({totalCars})
             </Typography>
           </div>
 
@@ -68,7 +72,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 htmlFor={`category-${category}`}
                 className="cursor-pointer text-sm text-gray-700 flex-1"
               >
-                {category} (3)
+                {category} ({categoryCounts[category] || 0})
               </Typography>
             </div>
           ))}

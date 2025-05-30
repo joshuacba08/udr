@@ -6,12 +6,14 @@ interface SuitcaseFilterProps {
   capacities: number[];
   selectedCapacities: number[];
   onToggleCapacity: (capacity: number) => void;
+  suitcaseCapacityCounts?: { [key: number]: number };
 }
 
 const SuitcaseFilter: React.FC<SuitcaseFilterProps> = ({
   capacities,
   selectedCapacities,
   onToggleCapacity,
+  suitcaseCapacityCounts = {},
 }) => {
   const formatCapacityLabel = (capacity: number) => {
     if (capacity === 1) return "1 ó más maletas";
@@ -52,7 +54,8 @@ const SuitcaseFilter: React.FC<SuitcaseFilterProps> = ({
                 htmlFor={`suitcase-${capacity}`}
                 className="cursor-pointer text-sm text-gray-700 flex-1"
               >
-                {formatCapacityLabel(capacity)} (3)
+                {formatCapacityLabel(capacity)} (
+                {suitcaseCapacityCounts[capacity] || 0})
               </Typography>
             </div>
           ))}

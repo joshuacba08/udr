@@ -1,6 +1,6 @@
 import { Accordion, Card } from "@material-tailwind/react";
 import React from "react";
-import { useFilters } from "../../hooks/useFilters";
+import { useCarFilters } from "../../hooks/useCarFilters";
 import FilterIcon from "../icons/FilterIcon";
 import {
   BrandFilter,
@@ -12,7 +12,7 @@ import {
 } from "./index";
 
 const SideFilters: React.FC = () => {
-  const filterHook = useFilters();
+  const filterHook = useCarFilters();
 
   if (filterHook.isLoading) {
     return (
@@ -53,24 +53,31 @@ const SideFilters: React.FC = () => {
             brands={filterHook.brands}
             selectedBrands={filterHook.selectedBrands}
             onToggleBrand={filterHook.toggleBrand}
+            brandCounts={filterHook.filterCounts.brandCounts}
           />
 
           <CategoryFilter
             categories={filterHook.categories}
             selectedCategories={filterHook.selectedCategories}
             onToggleCategory={filterHook.toggleCategory}
+            categoryCounts={filterHook.filterCounts.categoryCounts}
+            totalCars={filterHook.filterCounts.totalCars}
           />
 
           <SuitcaseFilter
             capacities={filterHook.suitcaseCapacities}
             selectedCapacities={filterHook.selectedSuitcaseCapacities}
             onToggleCapacity={filterHook.toggleSuitcaseCapacity}
+            suitcaseCapacityCounts={
+              filterHook.filterCounts.suitcaseCapacityCounts
+            }
           />
 
           <PassengerFilter
             counts={filterHook.passengerCounts}
             selectedCounts={filterHook.selectedPassengerCounts}
             onToggleCount={filterHook.togglePassengerCount}
+            passengerCountCounts={filterHook.filterCounts.passengerCountCounts}
           />
 
           <PriceRangeFilter

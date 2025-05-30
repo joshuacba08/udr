@@ -6,25 +6,18 @@ interface PassengerFilterProps {
   counts: number[];
   selectedCounts: number[];
   onToggleCount: (count: number) => void;
+  passengerCountCounts?: { [key: number]: number };
 }
 
 const PassengerFilter: React.FC<PassengerFilterProps> = ({
   counts,
   selectedCounts,
   onToggleCount,
+  passengerCountCounts = {},
 }) => {
   const formatCountLabel = (count: number) => {
     if (count === 7 || count === 8) return "7/8 pasajeros";
     return `${count} pasajeros`;
-  };
-
-  const getCountForLabel = (count: number) => {
-    // Get count of cars with this passenger count
-    if (count === 4) return "(12)";
-    if (count === 5) return "(78)";
-    if (count === 7) return "(16)";
-    if (count === 12) return "(3)";
-    return "(3)";
   };
 
   return (
@@ -60,7 +53,7 @@ const PassengerFilter: React.FC<PassengerFilterProps> = ({
                 htmlFor={`passenger-${count}`}
                 className="cursor-pointer text-sm text-gray-700 flex-1"
               >
-                {formatCountLabel(count)} {getCountForLabel(count)}
+                {formatCountLabel(count)} ({passengerCountCounts[count] || 0})
               </Typography>
             </div>
           ))}

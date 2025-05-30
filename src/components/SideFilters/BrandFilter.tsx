@@ -6,12 +6,14 @@ interface BrandFilterProps {
   brands: string[];
   selectedBrands: string[];
   onToggleBrand: (brand: string) => void;
+  brandCounts?: { [key: string]: number };
 }
 
 const BrandFilter: React.FC<BrandFilterProps> = ({
   brands,
   selectedBrands,
   onToggleBrand,
+  brandCounts = {},
 }) => {
   return (
     <Accordion.Item value="brands" className="border-none">
@@ -46,7 +48,7 @@ const BrandFilter: React.FC<BrandFilterProps> = ({
                 htmlFor={`brand-${brand}`}
                 className="cursor-pointer text-sm text-gray-700 flex-1"
               >
-                {brand} (3)
+                {brand} ({brandCounts[brand] || 0})
               </Typography>
             </div>
           ))}
