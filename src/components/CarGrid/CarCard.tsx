@@ -1,4 +1,10 @@
-import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+} from "@material-tailwind/react";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import type { Car } from "../../interfaces/ApiAuto.interface";
 import { useCarStore } from "../../store/carStore";
@@ -17,6 +23,7 @@ import {
 } from "../icons";
 
 import { Chip } from "@material-tailwind/react";
+import clsx from "clsx";
 
 interface CarCardProps {
   car: Car;
@@ -92,65 +99,39 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   return (
     <Card
       ref={cardRef}
-      className={`w-full max-w-5xl mx-auto shadow-md hover:shadow-lg transition-all duration-300 ${
+      className={clsx(
+        "shadow-md hover:shadow-lg transition-all duration-300 flex max-w-[968px] w-full h-[268px]",
         isHovering ? "shadow-lg" : ""
-      } overflow-hidden`}
+      )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <CardBody className="p-0">
-        <div className="flex">
-          {/* Blue vertical bar */}
-          <div className="w-1 bg-blue-600 flex-shrink-0"></div>
+      {/* Blue vertical bar */}
+      <div className="w-1 bg-blue-600 flex-shrink-0"></div>
+      <Card.Header className="m-0 h-full w-3/12 shrink-0 rounded-r-none relative bg-white ">
+        <img
+          src={car.picture_url.normal}
+          alt="card-image"
+          className="h-full w-full object-contain"
+        />
+        <div className="absolute top-4 left-4">
+          <div className="w-12 h-6 mb-3">
+            <AvisLogo className="w-full h-full" />
+          </div>
 
+          {/* Star Rating */}
+          <div className="flex gap-0.5 mb-3">{renderStarRating}</div>
+        </div>
+        {/* Destacado Chip */}
+        <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2 py-1 rounded-full absolute bottom-4 left-4">
+          <CheckLogo className="w-3 h-3" />
+          <span>Destacado</span>
+        </div>
+      </Card.Header>
+      <CardBody className="p-0 border-r-3 bg-white border-gray-300 border-dashed w-5/12 h-full">
+        <div className="flex">
           {/* Main content */}
           <div className="flex flex-1">
-            {/* Left Section - Company Info */}
-            {/* Car Image */}
-            {/* <div className="relative h-40 bg-gray-50 rounded-lg overflow-hidden mb-4">
-                {car.picture_url?.normal ? (
-                  <img
-                    src={car.picture_url.normal}
-                    alt={car.name}
-                    className={`w-full h-full object-contain transition-opacity duration-300 ${
-                      isImageLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                    onLoad={handleImageLoad}
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder-car.jpg";
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                    <Typography variant="small" className="text-gray-400">
-                      Sin imagen
-                    </Typography>
-                  </div>
-                )}
-              </div> */}
-            <Card.Header className="m-0 h-full w-2/5 shrink-0 rounded-r-none relative">
-              <img
-                src={car.picture_url.normal}
-                alt="card-image"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute top-4 left-4">
-                <div className="w-12 h-6 mb-3">
-                  <AvisLogo className="w-full h-full" />
-                </div>
-
-                {/* Star Rating */}
-                <div className="flex gap-0.5 mb-3">{renderStarRating}</div>
-              </div>
-              {/* Destacado Chip */}
-              <div className="flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2 py-1 rounded-full absolute bottom-4 left-4">
-                <CheckLogo className="w-3 h-3" />
-                <span>Destacado</span>
-              </div>
-            </Card.Header>
-
-            <div className="w-36 bg-white p-4 flex flex-col items-center justify-start border-r border-gray-100"></div>
-
             {/* Center Section - Car Details */}
             <div className="flex-1 p-6">
               {/* Car Category */}
@@ -173,11 +154,11 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
               </div>
 
               {/* Car Features Icons */}
-              <div className="flex items-center gap-8 mb-6">
+              <div className="flex items-center gap-2 my-8">
                 {/* Passengers */}
                 <Chip
                   isPill={false}
-                  className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-2"
+                  className="bg-gray-200 text-blue-900 border-none flex gap-2 items-center justify-center py-1 px-1"
                 >
                   <Chip.Icon>
                     <PassengersIcon className="w-4 h-4" />
@@ -252,82 +233,79 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                 </Chip>
               </div>
 
+              <hr className="border-gray-300 border my-5" />
+
               {/* Added to Quote Status */}
               <div className="flex items-center gap-2">
                 <CheckLogo className="w-4 h-4 text-green-600" />
                 <Typography
                   variant="small"
-                  className="text-green-600 font-medium"
+                  className="text-green-600 font-regular text-sm"
                 >
                   Vehículo agregado a su cotización (1 de 5)
                 </Typography>
               </div>
             </div>
-
-            {/* Right Section - Rate Card */}
-            <div className="w-80 bg-gray-50 p-6 flex flex-col justify-between">
-              {/* Rate Info */}
-              <div className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <Typography variant="h5" className="font-bold text-gray-900">
-                    Inclusive Light
-                  </Typography>
-                  <InfoIcon className="w-5 h-5 text-blue-600" />
-                </div>
-
-                <Typography variant="small" className="text-gray-600 mb-4">
-                  Precio por 3 días de renta
-                </Typography>
-
-                {/* Price Navigation */}
-                <div className="flex items-center justify-between mb-6">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="p-2 text-gray-400"
-                  >
-                    <ArrowIcon className="w-4 h-4 rotate-180" />
-                  </Button>
-
-                  <div className="text-center">
-                    <Typography
-                      variant="h3"
-                      className="font-bold text-blue-600 mb-1"
-                    >
-                      COP {price.toLocaleString("es-CO")}
-                    </Typography>
-                    <Typography variant="small" className="text-gray-500">
-                      (USD{" "}
-                      {usdPrice.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                      )
-                    </Typography>
-                  </div>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="p-2 text-gray-900"
-                  >
-                    <ArrowIcon className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-
-              {/* Select Button */}
-              <Button
-                size="lg"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-lg transition-colors duration-200"
-                onClick={handleSelect}
-              >
-                Seleccionar
-              </Button>
-            </div>
           </div>
         </div>
       </CardBody>
+      <CardFooter className="p-0 border-none w-6/12 bg-white flex justify-center items-center">
+        <Card className="h-[90%] w-[90%] bg-white p-4 border-none shadow-2xl">
+          {/* Right Section - Rate Card */}
+          <div className="w-full flex flex-col justify-between">
+            {/* Rate Info */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-2">
+                <Typography variant="h5" className="font-bold text-gray-900">
+                  Inclusive Light
+                </Typography>
+                <InfoIcon className="w-5 h-5 text-blue-600" />
+              </div>
+
+              <Typography variant="small" className="text-gray-600 mb-4">
+                Precio por 3 días de renta
+              </Typography>
+
+              {/* Price Navigation */}
+              <div className="flex items-center justify-between mb-6">
+                <Button variant="ghost" size="sm" className="p-2 text-gray-400">
+                  <ArrowIcon className="w-4 h-4 rotate-180" />
+                </Button>
+
+                <div className="text-center">
+                  <Typography
+                    variant="h3"
+                    className="font-bold text-blue-600 mb-1"
+                  >
+                    COP {price.toLocaleString("es-CO")}
+                  </Typography>
+                  <Typography variant="small" className="text-gray-500">
+                    (USD{" "}
+                    {usdPrice.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                    )
+                  </Typography>
+                </div>
+
+                <Button variant="ghost" size="sm" className="p-2 text-gray-900">
+                  <ArrowIcon className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Select Button */}
+            <Button
+              size="lg"
+              className="w-full bg-primary text-white font-semibold py-4 rounded-lg transition-colors duration-200 h-11"
+              onClick={handleSelect}
+            >
+              Seleccionar
+            </Button>
+          </div>
+        </Card>
+      </CardFooter>
     </Card>
   );
 };
