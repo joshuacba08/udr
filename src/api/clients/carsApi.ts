@@ -1,3 +1,4 @@
+// import carsData from "../../assets/data/carsJSON.json";
 import carsData from "../../assets/data/reduced_carsJSON.json";
 import type { CarsResponse } from "../../interfaces/ApiAuto.interface";
 
