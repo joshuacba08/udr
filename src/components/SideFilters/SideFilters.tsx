@@ -16,7 +16,7 @@ const SideFilters: React.FC = () => {
 
   if (filterHook.isLoading) {
     return (
-      <Card className="w-80 p-6 bg-white shadow-lg">
+      <Card className="w-80 p-6 bg-white shadow-lg border-none">
         <div className="animate-pulse">
           <div className="h-6 bg-gray-200 rounded mb-4"></div>
           <div className="space-y-3">
@@ -44,9 +44,9 @@ const SideFilters: React.FC = () => {
           defaultValue={[
             "brands",
             "categories",
-            "suitcaseCapacities",
-            "passengerCounts",
+            "suitcases",
             "priceRange",
+            "passengers",
           ]}
         >
           <BrandFilter
