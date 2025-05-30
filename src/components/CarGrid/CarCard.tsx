@@ -250,12 +250,12 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
         </div>
       </CardBody>
       <CardFooter className="p-0 border-none w-6/12 bg-white flex justify-center items-center">
-        <Card className="h-[90%] w-[90%] bg-white p-4 border-none shadow-2xl">
+        <Card className="h-[90%] w-[80%] bg-white p-4 border-none shadow relative">
           {/* Right Section - Rate Card */}
-          <div className="w-full flex flex-col justify-between">
+          <div className="w-full flex flex-col justify-between items-center">
             {/* Rate Info */}
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-2 mb-2">
                 <Typography variant="h5" className="font-bold text-gray-900">
                   Inclusive Light
                 </Typography>
@@ -267,9 +267,9 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
               </Typography>
 
               {/* Price Navigation */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center w-full  justify-between mb-5">
                 <Button variant="ghost" size="sm" className="p-2 text-gray-400">
-                  <ArrowIcon className="w-4 h-4 rotate-180" />
+                  <ArrowIcon className="w-4 h-4" />
                 </Button>
 
                 <div className="text-center">
@@ -288,9 +288,8 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
                     )
                   </Typography>
                 </div>
-
                 <Button variant="ghost" size="sm" className="p-2 text-gray-900">
-                  <ArrowIcon className="w-4 h-4" />
+                  <ArrowIcon className="w-4 h-4 rotate-180" />
                 </Button>
               </div>
             </div>
