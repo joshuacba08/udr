@@ -18,183 +18,76 @@ export interface Car_Features {
   category: string;
 }
 
-export interface Car_Rates_H8_Rate_data_Inclusions {
+// Base interfaces for common structures
+export interface Rate_data_Inclusions {
   name: string[];
   description: string[];
 }
 
-export interface Car_Rates_H8_Rate_data {
+export interface Rate_data {
   name: string;
   net_rate: boolean;
   rate_type: string;
-  inclusions: Car_Rates_H8_Rate_data_Inclusions;
+  inclusions: Rate_data_Inclusions;
   step_one: boolean;
 }
 
-export interface Car_Rates_H8_Inclusions_meta_Um {
+export interface Inclusion_meta_Item {
   name: string;
   description: string;
   visible_voucher: boolean;
 }
 
-export interface Car_Rates_H8_Inclusions_meta_Ldwc {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
+export interface Base_Inclusions_meta {
+  um: Inclusion_meta_Item;
+  ldwc: Inclusion_meta_Item;
+  lstax: Inclusion_meta_Item;
+  fad: Inclusion_meta_Item;
+  safetysecure: Inclusion_meta_Item;
+  "basic-rsn": Inclusion_meta_Item;
+  mod: Inclusion_meta_Item;
 }
 
-export interface Car_Rates_H8_Inclusions_meta_Tplc {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
+export interface H8_Inclusions_meta extends Base_Inclusions_meta {
+  tplc: Inclusion_meta_Item;
+  as: Inclusion_meta_Item;
 }
 
-export interface Car_Rates_H8_Inclusions_meta_As {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
+export interface F2_Inclusions_meta extends Base_Inclusions_meta {
+  tplc: Inclusion_meta_Item;
+  as: Inclusion_meta_Item;
+  tog: Inclusion_meta_Item;
 }
 
-export interface Car_Rates_H8_Inclusions_meta_Lstax {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_H8_Inclusions_meta_Fad {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_H8_Inclusions_meta_Safetysecure {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_H8_Inclusions_meta_Basic_rsn {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_H8_Inclusions_meta_Mod {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_H8_Inclusions_meta {
-  um: Car_Rates_H8_Inclusions_meta_Um;
-  ldwc: Car_Rates_H8_Inclusions_meta_Ldwc;
-  tplc: Car_Rates_H8_Inclusions_meta_Tplc;
-  as: Car_Rates_H8_Inclusions_meta_As;
-  lstax: Car_Rates_H8_Inclusions_meta_Lstax;
-  fad: Car_Rates_H8_Inclusions_meta_Fad;
-  safetysecure: Car_Rates_H8_Inclusions_meta_Safetysecure;
-  basic_rsn: Car_Rates_H8_Inclusions_meta_Basic_rsn;
-  mod: Car_Rates_H8_Inclusions_meta_Mod;
-}
-
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Base_Pp {
+export interface Payment_Details {
   prepaid_amount: string;
   paid_on_destination_amount: string;
 }
 
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Base {
+export interface Charge_Base {
   total_amount: string;
   estimated_total_amount: string;
   estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_H8_Pricing_Usd_Total_charge_Base_Pp;
-  pd: Car_Rates_H8_Pricing_Usd_Total_charge_Base_Pd;
+  pp: Payment_Details;
+  pd: Payment_Details;
 }
 
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Usd_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_H8_Pricing_Usd_Total_charge_Total_Pp;
-  pd: Car_Rates_H8_Pricing_Usd_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_H8_Pricing_Usd_Total_charge {
-  base: Car_Rates_H8_Pricing_Usd_Total_charge_Base;
+export interface Total_charge {
+  base: Charge_Base;
   discounts?: null | number;
-  total: Car_Rates_H8_Pricing_Usd_Total_charge_Total;
+  total: Charge_Base;
 }
 
-export interface Car_Rates_H8_Pricing_Usd {
-  total_charge: Car_Rates_H8_Pricing_Usd_Total_charge;
+export interface Currency_Pricing {
+  total_charge: Total_charge;
 }
 
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Base_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
+export interface Pricing {
+  USD: Currency_Pricing;
+  COP: Currency_Pricing;
 }
 
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Base {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_H8_Pricing_Cop_Total_charge_Base_Pp;
-  pd: Car_Rates_H8_Pricing_Cop_Total_charge_Base_Pd;
-}
-
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_H8_Pricing_Cop_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_H8_Pricing_Cop_Total_charge_Total_Pp;
-  pd: Car_Rates_H8_Pricing_Cop_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_H8_Pricing_Cop_Total_charge {
-  base: Car_Rates_H8_Pricing_Cop_Total_charge_Base;
-  discounts?: null | number;
-  total: Car_Rates_H8_Pricing_Cop_Total_charge_Total;
-}
-
-export interface Car_Rates_H8_Pricing_Cop {
-  total_charge: Car_Rates_H8_Pricing_Cop_Total_charge;
-}
-
-export interface Car_Rates_H8_Pricing {
-  USD: Car_Rates_H8_Pricing_Usd;
-  COP: Car_Rates_H8_Pricing_Cop;
-}
-
-export interface Car_Rates_H8_Tags {
+export interface Tag {
   id: number;
   name_filter: string;
   visible: boolean;
@@ -206,406 +99,21 @@ export interface Car_Rates_H8_Tags {
   priority: number;
 }
 
-export interface Car_Rates_H8 {
-  rate_data: Car_Rates_H8_Rate_data;
-  inclusions_meta: Car_Rates_H8_Inclusions_meta;
+export interface Car_Rate {
+  rate_data: Rate_data;
+  inclusions_meta:
+    | Base_Inclusions_meta
+    | H8_Inclusions_meta
+    | F2_Inclusions_meta;
   discount_numbers?: null | number;
-  pricing: Car_Rates_H8_Pricing;
-  tags: Car_Rates_H8_Tags[];
+  pricing: Pricing;
+  tags: Tag[];
   id: number;
 }
 
-export interface Car_Rates_F2_Rate_data_Inclusions {
-  name: string[];
-  description: string[];
-}
-
-export interface Car_Rates_F2_Rate_data {
-  name: string;
-  net_rate: boolean;
-  rate_type: string;
-  inclusions: Car_Rates_F2_Rate_data_Inclusions;
-  step_one: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Um {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Ldwc {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Tplc {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_As {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Lstax {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Tog {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Fad {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Safetysecure {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Basic_rsn {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta_Mod {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_F2_Inclusions_meta {
-  um: Car_Rates_F2_Inclusions_meta_Um;
-  ldwc: Car_Rates_F2_Inclusions_meta_Ldwc;
-  tplc: Car_Rates_F2_Inclusions_meta_Tplc;
-  as: Car_Rates_F2_Inclusions_meta_As;
-  lstax: Car_Rates_F2_Inclusions_meta_Lstax;
-  tog: Car_Rates_F2_Inclusions_meta_Tog;
-  fad: Car_Rates_F2_Inclusions_meta_Fad;
-  safetysecure: Car_Rates_F2_Inclusions_meta_Safetysecure;
-  basic_rsn: Car_Rates_F2_Inclusions_meta_Basic_rsn;
-  mod: Car_Rates_F2_Inclusions_meta_Mod;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Base_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Base {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_F2_Pricing_Usd_Total_charge_Base_Pp;
-  pd: Car_Rates_F2_Pricing_Usd_Total_charge_Base_Pd;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_F2_Pricing_Usd_Total_charge_Total_Pp;
-  pd: Car_Rates_F2_Pricing_Usd_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_F2_Pricing_Usd_Total_charge {
-  base: Car_Rates_F2_Pricing_Usd_Total_charge_Base;
-  discounts?: null | number;
-  total: Car_Rates_F2_Pricing_Usd_Total_charge_Total;
-}
-
-export interface Car_Rates_F2_Pricing_Usd {
-  total_charge: Car_Rates_F2_Pricing_Usd_Total_charge;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Base_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Base {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_F2_Pricing_Cop_Total_charge_Base_Pp;
-  pd: Car_Rates_F2_Pricing_Cop_Total_charge_Base_Pd;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_F2_Pricing_Cop_Total_charge_Total_Pp;
-  pd: Car_Rates_F2_Pricing_Cop_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_F2_Pricing_Cop_Total_charge {
-  base: Car_Rates_F2_Pricing_Cop_Total_charge_Base;
-  discounts?: null | number;
-  total: Car_Rates_F2_Pricing_Cop_Total_charge_Total;
-}
-
-export interface Car_Rates_F2_Pricing_Cop {
-  total_charge: Car_Rates_F2_Pricing_Cop_Total_charge;
-}
-
-export interface Car_Rates_F2_Pricing {
-  USD: Car_Rates_F2_Pricing_Usd;
-  COP: Car_Rates_F2_Pricing_Cop;
-}
-
-export interface Car_Rates_F2_Tags {
-  id: number;
-  name_filter: string;
-  visible: boolean;
-  name: string;
-  icon: string;
-  color: string;
-  remote_url?: null | string;
-  placeholder: string;
-  priority: number;
-}
-
-export interface Car_Rates_F2 {
-  rate_data: Car_Rates_F2_Rate_data;
-  inclusions_meta: Car_Rates_F2_Inclusions_meta;
-  discount_numbers?: null | number;
-  pricing: Car_Rates_F2_Pricing;
-  tags: Car_Rates_F2_Tags[];
-  id: number;
-}
-
-export interface Car_Rates_Cl_Rate_data_Inclusions {
-  name: string[];
-  description: string[];
-}
-
-export interface Car_Rates_Cl_Rate_data {
-  name: string;
-  net_rate: boolean;
-  rate_type: string;
-  inclusions: Car_Rates_Cl_Rate_data_Inclusions;
-  step_one: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Um {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Ldwc {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Lstax {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Fad {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Safetysecure {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Basic_rsn {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta_Mod {
-  name: string;
-  description: string;
-  visible_voucher: boolean;
-}
-
-export interface Car_Rates_Cl_Inclusions_meta {
-  um: Car_Rates_Cl_Inclusions_meta_Um;
-  ldwc: Car_Rates_Cl_Inclusions_meta_Ldwc;
-  lstax: Car_Rates_Cl_Inclusions_meta_Lstax;
-  fad: Car_Rates_Cl_Inclusions_meta_Fad;
-  safetysecure: Car_Rates_Cl_Inclusions_meta_Safetysecure;
-  basic_rsn: Car_Rates_Cl_Inclusions_meta_Basic_rsn;
-  mod: Car_Rates_Cl_Inclusions_meta_Mod;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Base_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Base {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_Cl_Pricing_Usd_Total_charge_Base_Pp;
-  pd: Car_Rates_Cl_Pricing_Usd_Total_charge_Base_Pd;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_Cl_Pricing_Usd_Total_charge_Total_Pp;
-  pd: Car_Rates_Cl_Pricing_Usd_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd_Total_charge {
-  base: Car_Rates_Cl_Pricing_Usd_Total_charge_Base;
-  discounts?: null | number;
-  total: Car_Rates_Cl_Pricing_Usd_Total_charge_Total;
-}
-
-export interface Car_Rates_Cl_Pricing_Usd {
-  total_charge: Car_Rates_Cl_Pricing_Usd_Total_charge;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Base_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Base_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Base {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_Cl_Pricing_Cop_Total_charge_Base_Pp;
-  pd: Car_Rates_Cl_Pricing_Cop_Total_charge_Base_Pd;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Total_Pp {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Total_Pd {
-  prepaid_amount: string;
-  paid_on_destination_amount: string;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge_Total {
-  total_amount: string;
-  estimated_total_amount: string;
-  estimated_total_amount_without_equipment_amount: string;
-  pp: Car_Rates_Cl_Pricing_Cop_Total_charge_Total_Pp;
-  pd: Car_Rates_Cl_Pricing_Cop_Total_charge_Total_Pd;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop_Total_charge {
-  base: Car_Rates_Cl_Pricing_Cop_Total_charge_Base;
-  discounts?: null | number;
-  total: Car_Rates_Cl_Pricing_Cop_Total_charge_Total;
-}
-
-export interface Car_Rates_Cl_Pricing_Cop {
-  total_charge: Car_Rates_Cl_Pricing_Cop_Total_charge;
-}
-
-export interface Car_Rates_Cl_Pricing {
-  USD: Car_Rates_Cl_Pricing_Usd;
-  COP: Car_Rates_Cl_Pricing_Cop;
-}
-
-export interface Car_Rates_Cl_Tags {
-  id: number;
-  name_filter: string;
-  visible: boolean;
-  name: string;
-  icon: string;
-  color: string;
-  remote_url?: null | string;
-  placeholder: string;
-  priority: number;
-}
-
-export interface Car_Rates_Cl {
-  rate_data: Car_Rates_Cl_Rate_data;
-  inclusions_meta: Car_Rates_Cl_Inclusions_meta;
-  discount_numbers?: null | number;
-  pricing: Car_Rates_Cl_Pricing;
-  tags: Car_Rates_Cl_Tags[];
-  id: number;
-}
-
+// More flexible rates structure to handle different rate codes
 export interface Car_Rates {
-  H8: Car_Rates_H8;
-  F2: Car_Rates_F2;
-  CL: Car_Rates_Cl;
+  [key: string]: Car_Rate;
 }
 
 export interface Car {
@@ -624,18 +132,33 @@ export interface Car {
   picture_url: Car_Picture_url;
   stars: number;
   features: Car_Features;
-  tags: Tags[];
+  tags: Tag[];
   rates: Car_Rates;
 }
 
-export interface Tags {
-  id: number;
-  name_filter: string;
-  visible: boolean;
-  name: string;
-  icon: string;
-  color: string;
-  remote_url?: null | string;
-  placeholder: string;
-  priority: number;
+export interface Days_Calculation {
+  days: number;
+  calculation: {
+    hours: number;
+    minutes: number;
+  };
 }
+
+export interface CarsResponse {
+  cars: {
+    [brand: string]: Car[];
+  };
+  days_calculation: Days_Calculation;
+}
+
+// Legacy type aliases for backward compatibility (can be removed if not needed)
+export type Tags = Tag;
+export type Car_Rates_H8_Rate_data_Inclusions = Rate_data_Inclusions;
+export type Car_Rates_F2_Rate_data_Inclusions = Rate_data_Inclusions;
+export type Car_Rates_Cl_Rate_data_Inclusions = Rate_data_Inclusions;
+export type Car_Rates_H8_Rate_data = Rate_data;
+export type Car_Rates_F2_Rate_data = Rate_data;
+export type Car_Rates_Cl_Rate_data = Rate_data;
+export type Car_Rates_H8 = Car_Rate;
+export type Car_Rates_F2 = Car_Rate;
+export type Car_Rates_Cl = Car_Rate;
