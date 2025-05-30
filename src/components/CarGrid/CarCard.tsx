@@ -1,18 +1,24 @@
 import {
+  Accordion,
   Button,
   Card,
   CardBody,
   CardFooter,
+  Tooltip,
   Typography,
 } from "@material-tailwind/react";
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import type { Car } from "../../interfaces/ApiAuto.interface";
+import type {
+  Car,
+  Inclusion_meta_Item,
+} from "../../interfaces/ApiAuto.interface";
 import { useCarStore } from "../../store/carStore";
 import {
   AirConditioningIcon,
   ArrowIcon,
   AvisLogo,
   CheckLogo,
+  ChevronIcon,
   DoorsIcon,
   InfoIcon,
   LuggageIcon,
@@ -33,7 +39,6 @@ interface CarCardProps {
 const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
   const { filters } = useCarStore();
   const cardRef = useRef<HTMLDivElement>(null);
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   // Get the highlighted rate (Inclusive Light)
@@ -47,10 +52,27 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     return inclusiveRate ? inclusiveRate[1] : Object.values(car.rates)[0];
   }, [car.rates]);
 
-  // Handle image load
-  const handleImageLoad = useCallback(() => {
-    setIsImageLoaded(true);
-  }, []);
+  // Get inclusions data for tooltip accordions
+  const inclusionsData = useMemo(() => {
+    if (!highlightedRate?.inclusions_meta) return [];
+
+    const inclusions: Array<Inclusion_meta_Item & { key: string }> = [];
+    const meta = highlightedRate.inclusions_meta;
+
+    // Add all inclusion items with their keys
+    Object.entries(meta).forEach(([key, item]) => {
+      if (
+        item &&
+        typeof item === "object" &&
+        "name" in item &&
+        "description" in item
+      ) {
+        inclusions.push({ ...item, key });
+      }
+    });
+
+    return inclusions;
+  }, [highlightedRate]);
 
   // Handle card selection
   const handleSelect = useCallback(() => {
@@ -82,6 +104,64 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
     }
     return stars;
   }, [car.stars]);
+
+  // Tooltip content with individual accordions for each inclusion
+  const TooltipContent = useMemo(
+    () => (
+      <div className="w-80 max-w-sm bg-white rounded-lg p-4">
+        <Typography
+          variant="h6"
+          className="font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2"
+        >
+          Detalle de la tarifa
+        </Typography>
+
+        <Typography
+          variant="small"
+          className="font-semibold text-gray-900 mb-4"
+        >
+          Inclusive Light (H8)
+        </Typography>
+
+        <Accordion type="multiple">
+          {inclusionsData.map((inclusion, index) => (
+            <Accordion.Item
+              key={inclusion.key || index}
+              value={inclusion.key || index.toString()}
+              className="border-none"
+            >
+              <Accordion.Trigger className="flex items-center justify-between w-full text-left p-0 hover:no-underline">
+                <div className="flex items-center gap-2 w-full justify-between py-2">
+                  <div className="flex items-center gap-2">
+                    <CheckLogo className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <Typography
+                      variant="small"
+                      className="font-medium text-gray-900"
+                    >
+                      {inclusion.name}
+                    </Typography>
+                  </div>
+                  <ChevronIcon
+                    direction="down"
+                    className="h-3 w-3 text-gray-600 transition-transform duration-200 group-data-[open=true]:rotate-180"
+                  />
+                </div>
+              </Accordion.Trigger>
+              <Accordion.Content className="pt-0 pb-2">
+                <Typography
+                  variant="small"
+                  className="text-gray-600 text-xs leading-relaxed ml-6"
+                >
+                  {inclusion.description}
+                </Typography>
+              </Accordion.Content>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </div>
+    ),
+    [inclusionsData]
+  );
 
   const pricing =
     filters.currency === "COP"
@@ -254,22 +334,38 @@ const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => {
           {/* Right Section - Rate Card */}
           <div className="w-full flex flex-col justify-between items-center">
             {/* Rate Info */}
-            <div className="mb-6">
+            <div className="mb-6 w-full">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Typography variant="h5" className="font-bold text-gray-900">
                   Inclusive Light
                 </Typography>
-                <InfoIcon className="w-5 h-5 text-blue-600" />
+                <Tooltip>
+                  <Tooltip.Trigger>
+                    <button
+                      className="p-0 border-0 bg-transparent cursor-pointer hover:opacity-75 transition-opacity"
+                      aria-label="Ver detalle de inclusiones"
+                    >
+                      <InfoIcon className="w-5 h-5 text-blue-600" />
+                    </button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content className="border-0 max-w-none z-50 p-0">
+                    {TooltipContent}
+                    <Tooltip.Arrow className="fill-white" />
+                  </Tooltip.Content>
+                </Tooltip>
               </div>
 
-              <Typography variant="small" className="text-gray-600 mb-4">
+              <Typography
+                variant="small"
+                className="text-gray-600 mb-4 text-center"
+              >
                 Precio por 3 días de renta
               </Typography>
 
               <hr className="border-gray-300 border my-3" />
 
               {/* Price Navigation */}
-              <div className="flex items-center w-full  justify-between mb-2">
+              <div className="flex items-center w-full justify-between mb-2">
                 <Button variant="ghost" size="sm" className="p-2 text-gray-400">
                   <ArrowIcon className="w-4 h-4" />
                 </Button>
