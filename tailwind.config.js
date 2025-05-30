@@ -19,6 +19,7 @@ export default {
         error: "#e91248",
         success: "#35b890",
         warning: "#ffb503",
+        background: "#f1f3f6",
       },
       fontFamily: {
         "gt-walsheim": ["GT Walsheim", "sans-serif"],

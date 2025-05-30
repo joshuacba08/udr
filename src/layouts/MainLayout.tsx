@@ -4,7 +4,7 @@ import NavbarUdr from "./NavbarUdr";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="w-full min-h-screen bg-background">
       <NavbarUdr />
       <SearchForm />
       <BookingSteps />
