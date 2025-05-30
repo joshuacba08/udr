@@ -16,7 +16,7 @@ const BrandFilter: React.FC<BrandFilterProps> = ({
   return (
     <Accordion.Item value="brands" className="border-none">
       <Accordion.Trigger className="flex items-center justify-between w-full text-left p-0 hover:no-underline">
-        <div className="flex items-center gap-2 w-full justify-between bg-blue-200">
+        <div className="flex items-center gap-2 w-full justify-between bg-blue-200 py-2">
           <Typography
             variant="h6"
             color="inherit"
