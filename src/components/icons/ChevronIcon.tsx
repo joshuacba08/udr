@@ -2,12 +2,38 @@ import React from "react";
 import type { IconProps } from "./IconBase";
 import IconBase from "./IconBase";
 
-const ChevronIcon: React.FC<IconProps> = (props) => {
+interface ChevronIconProps extends IconProps {
+  direction?: "up" | "down" | "left" | "right";
+}
+
+const ChevronIcon: React.FC<ChevronIconProps> = ({
+  direction = "down",
+  ...props
+}) => {
+  const getRotation = () => {
+    switch (direction) {
+      case "up":
+        return "rotate-180";
+      case "left":
+        return "rotate-90";
+      case "right":
+        return "-rotate-90";
+      default:
+        return "";
+    }
+  };
+
   return (
-    <IconBase {...props} viewBox="0 0 5 8" defaultWidth={5} defaultHeight={8}>
+    <IconBase
+      {...props}
+      viewBox="0 0 20 20"
+      defaultWidth={20}
+      defaultHeight={20}
+      className={`${getRotation()} ${props.className || ""}`}
+    >
       <path
-        d="M4.81693 4.40344C5.06102 4.1803 5.06102 3.81792 4.81693 3.59478L1.06766 0.167355C0.823569 -0.0557852 0.427162 -0.0557852 0.183069 0.167355C-0.0610236 0.390494 -0.0610236 0.752873 0.183069 0.976013L3.49102 4L0.185022 7.02399C-0.0590707 7.24713 -0.0590707 7.60951 0.185022 7.83265C0.429115 8.05578 0.825522 8.05578 1.06962 7.83265L4.81888 4.40522L4.81693 4.40344Z"
-        fill="#7C9AED"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        fill="currentColor"
       />
     </IconBase>
   );

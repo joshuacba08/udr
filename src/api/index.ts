@@ -8,7 +8,11 @@ export {
   useCarsByBrandQuery,
   useCarsQuery,
   useCarsWithUtils,
+  useCategoriesQuery,
+  usePassengerCountsQuery,
+  usePriceRangeQuery,
   useSearchCarsQuery,
+  useSuitcaseCapacitiesQuery,
 } from "./queries/useCarsQueries";
 
 // Query Client

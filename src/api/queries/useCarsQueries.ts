@@ -11,6 +11,11 @@ export const carsQueryKeys = {
   detail: (id: string) => [...carsQueryKeys.details(), id] as const,
   brands: () => [...carsQueryKeys.all, "brands"] as const,
   brand: (brand: string) => [...carsQueryKeys.all, "brand", brand] as const,
+  categories: () => [...carsQueryKeys.all, "categories"] as const,
+  suitcaseCapacities: () =>
+    [...carsQueryKeys.all, "suitcase-capacities"] as const,
+  passengerCounts: () => [...carsQueryKeys.all, "passenger-counts"] as const,
+  priceRange: () => [...carsQueryKeys.all, "price-range"] as const,
   search: (criteria: Record<string, unknown>) =>
     [...carsQueryKeys.all, "search", criteria] as const,
 };
@@ -53,15 +58,66 @@ export const useBrandsQuery = () => {
 };
 
 /**
+ * Hook to fetch all available categories
+ */
+export const useCategoriesQuery = () => {
+  return useQuery({
+    queryKey: carsQueryKeys.categories(),
+    queryFn: () => CarsApiService.getCategories(),
+    staleTime: 10 * 60 * 1000,
+    gcTime: 15 * 60 * 1000,
+  });
+};
+
+/**
+ * Hook to fetch all available suitcase capacities
+ */
+export const useSuitcaseCapacitiesQuery = () => {
+  return useQuery({
+    queryKey: carsQueryKeys.suitcaseCapacities(),
+    queryFn: () => CarsApiService.getSuitcaseCapacities(),
+    staleTime: 10 * 60 * 1000,
+    gcTime: 15 * 60 * 1000,
+  });
+};
+
+/**
+ * Hook to fetch all available passenger counts
+ */
+export const usePassengerCountsQuery = () => {
+  return useQuery({
+    queryKey: carsQueryKeys.passengerCounts(),
+    queryFn: () => CarsApiService.getPassengerCounts(),
+    staleTime: 10 * 60 * 1000,
+    gcTime: 15 * 60 * 1000,
+  });
+};
+
+/**
+ * Hook to fetch price range
+ */
+export const usePriceRangeQuery = () => {
+  return useQuery({
+    queryKey: carsQueryKeys.priceRange(),
+    queryFn: () => CarsApiService.getPriceRange(),
+    staleTime: 10 * 60 * 1000,
+    gcTime: 15 * 60 * 1000,
+  });
+};
+
+/**
  * Hook to search cars with criteria
  */
 export const useSearchCarsQuery = (
   criteria: {
-    brand?: string;
+    brands?: string[];
+    categories?: string[];
     minPrice?: number;
     maxPrice?: number;
-    category?: string;
+    suitcaseCapacity?: number[];
+    passengerCount?: number[];
     transmission?: string;
+    currency?: "USD" | "COP";
   },
   enabled: boolean = true
 ) => {

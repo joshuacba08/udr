@@ -1,5 +1,6 @@
 import { BookingSteps } from "../components/booking";
 import { SearchForm } from "../components/search";
+import { SideFilters } from "../components/SideFilters";
 import NavbarUdr from "./NavbarUdr";
 
 const MainLayout = () => {
@@ -8,6 +9,9 @@ const MainLayout = () => {
       <NavbarUdr />
       <SearchForm />
       <BookingSteps />
+      <main className="flex p-6">
+        <SideFilters />
+      </main>
     </div>
   );
 };
