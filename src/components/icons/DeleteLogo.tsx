@@ -6,11 +6,11 @@ const DeleteLogo: React.FC<IconProps> = (props) => {
   return (
     <IconBase
       {...props}
-      viewBox="0 0 15 17"
-      defaultWidth={15}
-      defaultHeight={17}
+      viewBox="0 0 16 18"
+      defaultWidth={16}
+      defaultHeight={18}
     >
-      <path d="M12.3 3.69999V13.9C12.3 14.8944 11.4784 15.7 10.4848 15.7H4.4848C3.4904 15.7 2.7 14.8944 2.7 13.9V3.69999M13.5 3.69999H1.5M5.9 1.29999H9.1M9.1 6.89999V12.5M5.9 12.5V6.89999" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14.4 4.1H1.6M6.4 1H9.6M2.4 4.1L3.2 16.9H12.8L13.6 4.1M6.4 7.3V13.7M9.6 7.3V13.7M10.4 13.7V7.3M5.6 13.7V7.3M9.9 12.5V6.89999" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </IconBase>
   );
 };

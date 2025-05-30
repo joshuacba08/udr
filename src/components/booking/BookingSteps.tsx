@@ -62,9 +62,8 @@ const BookingSteps: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full gap-6 lg:gap-8">
             {steps.map((step, index) => (
-              <>
+              <React.Fragment key={step.order}>
                 <Step
-                  key={step.order}
                   number={step.order}
                   title={step.title}
                   isActive={step.isActive}
@@ -75,7 +74,7 @@ const BookingSteps: React.FC = () => {
                     <ChevronIcon className="h-3 w-3 text-gray-400" />
                   </div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>

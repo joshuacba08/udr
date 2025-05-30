@@ -1,6 +1,6 @@
-import React from 'react';
-import IconBase from './IconBase';
-import type { IconProps } from './IconBase';
+import React from "react";
+import type { IconProps } from "./IconBase";
+import IconBase from "./IconBase";
 
 const TransmissionIcon: React.FC<IconProps> = (props) => {
   return (
@@ -10,7 +10,13 @@ const TransmissionIcon: React.FC<IconProps> = (props) => {
       defaultWidth={11}
       defaultHeight={11}
     >
-      <path d="M5.67745 9.50167V1.49833M1.67578 5.5H9.67912V1.49833M1.67578 9.50167V1.49833" stroke="#9B9FB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path
+        d="M5.67745 9.50167V1.49833M1.67578 5.5H9.67912V1.49833M1.67578 9.50167V1.49833"
+        stroke="#9B9FB7"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </IconBase>
   );
 };

@@ -1,0 +1,953 @@
+{
+  "cars": {
+    "Avis": [
+      {
+        "brand": 1,
+        "name": "Kia Rio",
+        "name_details": "Kia Rio o similar",
+        "code": "ECAR",
+        "vehicle_group": "A",
+        "air_conditioner": true,
+        "transmission_type": "Automatic",
+        "vehicle_type": "1",
+        "vehicle_class": "3",
+        "fuel_type": null,
+        "drive_type": null,
+        "door_count": null,
+        "picture_url": {
+          "normal": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-white.png",
+          "featured": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-black_featured.png"
+        },
+        "stars": 3,
+        "features": {
+          "doors": "4",
+          "seats": "5",
+          "air_conditioner": true,
+          "transmition": "Automatic",
+          "fuel_type": "Gasoline",
+          "large_suitcase": 1,
+          "small_suitcase": 1,
+          "thumb": "2020-kia-rio-s-sedan-grey.png",
+          "fleet_group_id": 2,
+          "fleet_category_id": 11,
+          "fleet_original_category_id": 11,
+          "category": "Económico"
+        },
+        "tags": [],
+        "rates": {
+          "H8": {
+            "rate_data": {
+              "name": "Com seguro total",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "tplc": {
+                "name": "Protección contra terceros",
+                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                "visible_voucher": true
+              },
+              "as": {
+                "name": "Recargo de Aeropuerto",
+                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "162.00",
+                    "estimated_total_amount": "162.00",
+                    "estimated_total_amount_without_equipment_amount": "162.00",
+                    "pp": {
+                      "prepaid_amount": "162.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "162.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "162.00",
+                    "estimated_total_amount": "162.00",
+                    "estimated_total_amount_without_equipment_amount": "162.00",
+                    "pp": {
+                      "prepaid_amount": "162.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "162.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "672175.26",
+                    "estimated_total_amount": "672175.26",
+                    "estimated_total_amount_without_equipment_amount": "672175.26",
+                    "pp": {
+                      "prepaid_amount": "672175.26",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "672175.26"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "672175.26",
+                    "estimated_total_amount": "672175.26",
+                    "estimated_total_amount_without_equipment_amount": "672175.26",
+                    "pp": {
+                      "prepaid_amount": "672175.26",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "672175.26"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 7,
+                "name_filter": "Millas ilimitadas",
+                "visible": false,
+                "name": "Millas ilimitadas",
+                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                "priority": 20
+              }
+            ],
+            "id": 3
+          },
+          "F2": {
+            "rate_data": {
+              "name": "Com combustível",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "tplc": {
+                "name": "Protección contra terceros",
+                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                "visible_voucher": true
+              },
+              "as": {
+                "name": "Recargo de Aeropuerto",
+                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "tog": {
+                "name": "Tanque de gasolina",
+                "description": "Permite al arrendatario devolver el vehículo con el depósito de combustible vacío sin tener que pagar ningún recargo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "182.00",
+                    "estimated_total_amount": "182.00",
+                    "estimated_total_amount_without_equipment_amount": "182.00",
+                    "pp": {
+                      "prepaid_amount": "182.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "182.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "182.00",
+                    "estimated_total_amount": "182.00",
+                    "estimated_total_amount_without_equipment_amount": "182.00",
+                    "pp": {
+                      "prepaid_amount": "182.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "182.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "755159.86",
+                    "estimated_total_amount": "755159.86",
+                    "estimated_total_amount_without_equipment_amount": "755159.86",
+                    "pp": {
+                      "prepaid_amount": "755159.86",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "755159.86"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "755159.86",
+                    "estimated_total_amount": "755159.86",
+                    "estimated_total_amount_without_equipment_amount": "755159.86",
+                    "pp": {
+                      "prepaid_amount": "755159.86",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "755159.86"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 24,
+                "name_filter": "Protección total del vehículo",
+                "visible": false,
+                "name": "Protección total del vehículo",
+                "icon": "https://test/assets/tags/01JH5X8HDH8F3HK0FGER807T6Z.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "priority": 21
+              }
+            ],
+            "id": 2
+          },
+          "CL": {
+            "rate_data": {
+              "name": "Com seguro parcial",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "162.00",
+                    "estimated_total_amount": "162.00",
+                    "estimated_total_amount_without_equipment_amount": "162.00",
+                    "pp": {
+                      "prepaid_amount": "162.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "162.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "162.00",
+                    "estimated_total_amount": "162.00",
+                    "estimated_total_amount_without_equipment_amount": "162.00",
+                    "pp": {
+                      "prepaid_amount": "162.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "162.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "672175.26",
+                    "estimated_total_amount": "672175.26",
+                    "estimated_total_amount_without_equipment_amount": "672175.26",
+                    "pp": {
+                      "prepaid_amount": "672175.26",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "672175.26"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "672175.26",
+                    "estimated_total_amount": "672175.26",
+                    "estimated_total_amount_without_equipment_amount": "672175.26",
+                    "pp": {
+                      "prepaid_amount": "672175.26",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "672175.26"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 7,
+                "name_filter": "Millas ilimitadas",
+                "visible": false,
+                "name": "Millas ilimitadas",
+                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                "priority": 20
+              }
+            ],
+            "id": 168
+          }
+        }
+      }
+    ],
+    "Budget": [
+      {
+        "brand": 2,
+        "name": "Kia Rio",
+        "name_details": "Kia Rio o similar",
+        "code": "ECAR",
+        "vehicle_group": "A",
+        "air_conditioner": true,
+        "transmission_type": "Automatic",
+        "vehicle_type": "1",
+        "vehicle_class": "3",
+        "fuel_type": null,
+        "drive_type": null,
+        "door_count": null,
+        "picture_url": {
+          "normal": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-white.png",
+          "featured": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-white_featured.png"
+        },
+        "stars": 3,
+        "features": {
+          "doors": "4",
+          "seats": "5",
+          "air_conditioner": true,
+          "transmition": "Automatic",
+          "fuel_type": "Gasoline",
+          "large_suitcase": 1,
+          "small_suitcase": 1,
+          "thumb": "2020-kia-rio-s-sedan-silver.png",
+          "fleet_group_id": 2,
+          "fleet_category_id": 11,
+          "fleet_original_category_id": 11,
+          "category": "Económico"
+        },
+        "tags": [],
+        "rates": {
+          "LQ": {
+            "rate_data": {
+              "name": "Com seguro total",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "tplc": {
+                "name": "Protección contra terceros",
+                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                "visible_voucher": true
+              },
+              "as": {
+                "name": "Recargo de Aeropuerto",
+                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "158.00",
+                    "estimated_total_amount": "158.00",
+                    "estimated_total_amount_without_equipment_amount": "158.00",
+                    "pp": {
+                      "prepaid_amount": "158.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "158.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "158.00",
+                    "estimated_total_amount": "158.00",
+                    "estimated_total_amount_without_equipment_amount": "158.00",
+                    "pp": {
+                      "prepaid_amount": "158.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "158.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "655578.34",
+                    "estimated_total_amount": "655578.34",
+                    "estimated_total_amount_without_equipment_amount": "655578.34",
+                    "pp": {
+                      "prepaid_amount": "655578.34",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "655578.34"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "655578.34",
+                    "estimated_total_amount": "655578.34",
+                    "estimated_total_amount_without_equipment_amount": "655578.34",
+                    "pp": {
+                      "prepaid_amount": "655578.34",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "655578.34"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 7,
+                "name_filter": "Millas ilimitadas",
+                "visible": false,
+                "name": "Millas ilimitadas",
+                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                "priority": 20
+              }
+            ],
+            "id": 84
+          },
+          "BZ": {
+            "rate_data": {
+              "name": "Com combustível",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "tplc": {
+                "name": "Protección contra terceros",
+                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                "visible_voucher": true
+              },
+              "as": {
+                "name": "Recargo de Aeropuerto",
+                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "tog": {
+                "name": "Tanque de gasolina",
+                "description": "Permite al arrendatario devolver el vehículo con el depósito de combustible vacío sin tener que pagar ningún recargo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "178.00",
+                    "estimated_total_amount": "178.00",
+                    "estimated_total_amount_without_equipment_amount": "178.00",
+                    "pp": {
+                      "prepaid_amount": "178.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "178.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "178.00",
+                    "estimated_total_amount": "178.00",
+                    "estimated_total_amount_without_equipment_amount": "178.00",
+                    "pp": {
+                      "prepaid_amount": "178.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "178.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "738562.94",
+                    "estimated_total_amount": "738562.94",
+                    "estimated_total_amount_without_equipment_amount": "738562.94",
+                    "pp": {
+                      "prepaid_amount": "738562.94",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "738562.94"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "738562.94",
+                    "estimated_total_amount": "738562.94",
+                    "estimated_total_amount_without_equipment_amount": "738562.94",
+                    "pp": {
+                      "prepaid_amount": "738562.94",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "738562.94"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 7,
+                "name_filter": "Millas ilimitadas",
+                "visible": false,
+                "name": "Millas ilimitadas",
+                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                "priority": 20
+              }
+            ],
+            "id": 83
+          }
+        }
+      }
+    ],
+    "Payless": [
+      {
+        "brand": 3,
+        "name": "Kia Rio",
+        "name_details": "Kia Rio o similar",
+        "code": "ECAR",
+        "vehicle_group": "A",
+        "air_conditioner": true,
+        "transmission_type": "Automatic",
+        "vehicle_type": "1",
+        "vehicle_class": "3",
+        "fuel_type": null,
+        "drive_type": null,
+        "door_count": null,
+        "picture_url": {
+          "normal": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-blue.png",
+          "featured": "https://test/assets/fleet_images/2020-kia-rio-s-sedan-white_featured.png"
+        },
+        "stars": 3,
+        "features": {
+          "doors": "4",
+          "seats": "5",
+          "air_conditioner": true,
+          "transmition": "Automatic",
+          "fuel_type": "Gasoline",
+          "large_suitcase": 1,
+          "small_suitcase": 2,
+          "thumb": "2021-kia-rio-s-sedan-silver.png",
+          "fleet_group_id": 2,
+          "fleet_category_id": 11,
+          "fleet_original_category_id": 11,
+          "category": "Económico"
+        },
+        "tags": [],
+        "rates": {
+          "01": {
+            "rate_data": {
+              "name": "Com seguro total",
+              "net_rate": false,
+              "rate_type": "pp",
+              "inclusions": {
+                "name": [],
+                "description": []
+              },
+              "step_one": true
+            },
+            "inclusions_meta": {
+              "um": {
+                "name": "Millaje libre",
+                "description": "Se le permite conducir un número ilimitado de millas durante su alquiler sin costo adicional.",
+                "visible_voucher": true
+              },
+              "ldwc": {
+                "name": "Protección total del vehículo",
+                "description": "Cobertura total contra robo, incendio o colisión, siempre que esté dentro de los términos del contrato de alquiler.",
+                "visible_voucher": true
+              },
+              "tplc": {
+                "name": "Protección contra terceros",
+                "description": "Cobertura de responsabilidad hacia terceros requerida por la ley y aplicable si el conductor causa lesiones a un tercero y / o su propiedad.",
+                "visible_voucher": true
+              },
+              "as": {
+                "name": "Recargo de Aeropuerto",
+                "description": "Es el cargo que se aplica cuando la renta comienza en una oficina de  localizada en un aeropuerto.",
+                "visible_voucher": true
+              },
+              "lstax": {
+                "name": "Impuestos estatales y locales",
+                "description": "Son los impuestos (nacionales, estatales o locales) que por ley aplican a la renta de vehículos en el lugar de inicio del mismo.",
+                "visible_voucher": true
+              },
+              "fad": {
+                "name": "Conductor adicional",
+                "description": "Permite agregar a otra persona para conducir el vehículo durante todo el período de la renta al igual que conductor titular.",
+                "visible_voucher": true
+              },
+              "safetysecure": {
+                "name": "Vehículos desinfectados previo a su entrega",
+                "description": "Esta compañía rentadora prioriza la salud y seguridad de nuestros clientes. Por este motivo, todos los vehículos son desinfectados antes de ser entregados para que puedas disfrutar tu viaje con mayor tranquilidad.",
+                "visible_voucher": false
+              },
+              "basic-rsn": {
+                "name": "Asistencia básica en la carretera",
+                "description": "La compañía rentadora ofrece asistencia básica las 24 horas en caso que el vehículo presente fallas mecánicas. Por favor ten en cuenta que el titular de la reserva deberá asumir cualquier costo que se pueda generar debido a daños causados al vehículo y/o servicios no incluidos en la asistencia básica.",
+                "visible_voucher": true
+              },
+              "mod": {
+                "name": "Modifica tu reserva sin costo",
+                "description": "Realiza modificaciones en tu reserva antes de la fecha de inicio sin incurrir en cargos administrativos. En caso de que el plan aumente, se aplicará la diferencia correspondiente.",
+                "visible_voucher": true
+              }
+            },
+            "discount_numbers": null,
+            "pricing": {
+              "USD": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "156.00",
+                    "estimated_total_amount": "156.00",
+                    "estimated_total_amount_without_equipment_amount": "156.00",
+                    "pp": {
+                      "prepaid_amount": "156.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "156.00"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "156.00",
+                    "estimated_total_amount": "156.00",
+                    "estimated_total_amount_without_equipment_amount": "156.00",
+                    "pp": {
+                      "prepaid_amount": "156.00",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "156.00"
+                    }
+                  }
+                }
+              },
+              "COP": {
+                "total_charge": {
+                  "base": {
+                    "total_amount": "647279.88",
+                    "estimated_total_amount": "647279.88",
+                    "estimated_total_amount_without_equipment_amount": "647279.88",
+                    "pp": {
+                      "prepaid_amount": "647279.88",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "647279.88"
+                    }
+                  },
+                  "discounts": null,
+                  "total": {
+                    "total_amount": "647279.88",
+                    "estimated_total_amount": "647279.88",
+                    "estimated_total_amount_without_equipment_amount": "647279.88",
+                    "pp": {
+                      "prepaid_amount": "647279.88",
+                      "paid_on_destination_amount": "0.00"
+                    },
+                    "pd": {
+                      "prepaid_amount": "0.00",
+                      "paid_on_destination_amount": "647279.88"
+                    }
+                  }
+                }
+              }
+            },
+            "tags": [
+              {
+                "id": 7,
+                "name_filter": "Millas ilimitadas",
+                "visible": false,
+                "name": "Millas ilimitadas",
+                "icon": "https://test/assets/tags/01JGKT8BCFKZEE7ZCVHJN0Y0E4.svg",
+                "color": "#107add",
+                "remote_url": null,
+                "placeholder": "Durante el período de alquiler, está permitido el consumo ilimitado de millas.",
+                "priority": 20
+              }
+            ],
+            "id": 1816
+          }
+        }
+      }
+    ]
+  },
+  "days_calculation": {
+    "days": 2,
+    "calculation": {
+      "hours": 24,
+      "minutes": 0
+    }
+  }
+}
