@@ -28,5 +28,54 @@
 @layer base {
   body {
     @apply bg-background;
+    font-family: "GT Walsheim", sans-serif;
+  }
+
+  button {
+    @apply font-gt-walsheim!;
+  }
+
+  h1 {
+    @apply font-gt-walsheim!;
+  }
+
+  h2 {
+    @apply font-gt-walsheim!;
+  }
+
+  h3 {
+    @apply font-gt-walsheim!;
+  }
+
+  h4 {
+    @apply font-gt-walsheim!;
+  }
+
+  h5 {
+    @apply font-gt-walsheim!;
+  }
+
+  h6 {
+    @apply font-gt-walsheim!;
+  }
+
+  p {
+    @apply font-gt-walsheim!;
+  }
+
+  span {
+    @apply font-gt-walsheim!;
+  }
+
+  a {
+    @apply font-gt-walsheim!;
+  }
+
+  label {
+    @apply font-gt-walsheim!;
+  }
+
+  input {
+    @apply font-gt-walsheim!;
   }
 }
