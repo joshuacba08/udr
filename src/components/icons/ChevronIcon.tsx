@@ -1,0 +1,16 @@
+import React from "react";
+import type { IconProps } from "./IconBase";
+import IconBase from "./IconBase";
+
+const ChevronIcon: React.FC<IconProps> = (props) => {
+  return (
+    <IconBase {...props} viewBox="0 0 5 8" defaultWidth={5} defaultHeight={8}>
+      <path
+        d="M4.81693 4.40344C5.06102 4.1803 5.06102 3.81792 4.81693 3.59478L1.06766 0.167355C0.823569 -0.0557852 0.427162 -0.0557852 0.183069 0.167355C-0.0610236 0.390494 -0.0610236 0.752873 0.183069 0.976013L3.49102 4L0.185022 7.02399C-0.0590707 7.24713 -0.0590707 7.60951 0.185022 7.83265C0.429115 8.05578 0.825522 8.05578 1.06962 7.83265L4.81888 4.40522L4.81693 4.40344Z"
+        fill="#7C9AED"
+      />
+    </IconBase>
+  );
+};
+
+export default ChevronIcon;

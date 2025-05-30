@@ -1,0 +1,18 @@
+import React from 'react';
+import IconBase from './IconBase';
+import type { IconProps } from './IconBase';
+
+const PassengersIcon: React.FC<IconProps> = (props) => {
+  return (
+    <IconBase
+      {...props}
+      viewBox="0 0 9 11"
+      defaultWidth={9}
+      defaultHeight={11}
+    >
+      <path d="M7.67564 10.25V9.23212C7.67564 8.00317 6.69608 7.00691 5.48773 7.00691H3.18791C1.97956 7.00691 1 8.00317 1 9.23212V10.25M5.71502 1.33006C6.47546 2.10346 6.47546 3.35741 5.71502 4.13082C4.95458 4.90423 3.72165 4.90423 2.9612 4.13082C2.20075 3.35742 2.20075 2.10347 2.9612 1.33006C3.72164 0.556648 4.95457 0.556648 5.71502 1.33006Z" stroke="#9B9FB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </IconBase>
+  );
+};
+
+export default PassengersIcon;
